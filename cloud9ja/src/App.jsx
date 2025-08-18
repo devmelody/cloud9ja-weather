@@ -8,6 +8,7 @@ import AirConditions from './components/AirConditions'
 import WeeklyForecast from './components/WeeklyForecast'
 import { Routes, Route } from 'react-router-dom'
 import HomePage from './components/HomePage'
+import Map from './components/Map'
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
     <Routes>
       <Route path='/' element={<Landingpage />} />
       <Route path='/homepage' element={<HomePage />} />
+      <Route path='/homepage/map' element={<Map />} />
     </Routes>
  
 

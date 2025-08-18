@@ -1,5 +1,6 @@
 import "../index.css";
 import useWeatherStore from "./stores/useWeatherStore";
+import getWeatherIcon2 from "../weatherIcons2";
 
 function HourlyForecast() {
   const { weatherData } = useWeatherStore();
@@ -25,8 +26,8 @@ function HourlyForecast() {
     hour12: true
   })}</p>
             <img
-              src="/assets/main-weather.svg"
-              alt="weather-condition"
+              src={getWeatherIcon2(hour.weather.code)}
+              alt={getWeatherIcon2(hour.weather.code)}
               className="w-10 h-10 block border-white-600 "
             />
             <p className="text-xs font-bold text-white">{tempsToDisplay[index].toFixed()}&deg;c</p>

@@ -3,8 +3,8 @@ import "../index.css";
 
 function Landingpage() {
   return (
-    <div className="container">
-      <img src="/assets/sun-cloud.svg" alt="cloud-logo" className="size-64 mx-auto " />
+    <div className="container items-center flex flex-col justify-center">
+      <img src="/assets/cloudy.svg" alt="cloud-logo" className="size-64 mx-auto " />
       <div className="mt-10 mb-14">
         <h1 className="text-center text-white text-6xl font-bold">Cloud9ja</h1>
         <p className="text-center text-2xl font-mono font-bold text-orange-200 mt-4">Heads up. Skies ahead</p>

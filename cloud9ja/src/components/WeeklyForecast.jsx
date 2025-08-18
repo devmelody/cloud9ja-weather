@@ -1,5 +1,6 @@
 import "../index.css";
 import useWeatherStore from "./stores/useWeatherStore";
+import getWeatherIcon from "../weatherIcons";
 
 
 
@@ -20,12 +21,12 @@ const {weatherData} = useWeatherStore();
       <div>
         {weatherData.dailyData.map((day, index) => (
 
-        <div key={index} className="flex gap-5 items-start justify-between border-b-2 border-b-gray-600 mt-5">
+        <div key={index} className="flex gap-5 items-center justify-between border-b p-5">
           <p>{new Date(day.valid_date).toLocaleDateString("en-US", { weekday: "short" })}</p>
           <div className="flex">
             <img
-              src="/assets/main-weather.svg"
-              alt="weather-condition"
+              src={getWeatherIcon(day.weather.code)}
+              alt={getWeatherIcon(day.weather.code)}
               className="w-8 h-7 block border-white-600"
             />
             <p>Sunny</p>

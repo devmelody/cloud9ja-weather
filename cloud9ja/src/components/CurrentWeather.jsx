@@ -1,6 +1,7 @@
 import "../index.css";
 import { useEffect } from "react";
 import useWeatherStore from "./stores/useWeatherStore";
+import getWeatherIcon from "../weatherIcons";
 
 function CurrentWeather() {
   const { weatherData, error, fetchWeatherData } = useWeatherStore();
@@ -41,7 +42,7 @@ function CurrentWeather() {
 
       <div className="flex flex-col items-center">
         <img
-          src="/assets/sun-icon.svg"
+          src={getWeatherIcon(weatherData.currentData.weather.code)}
           alt="current-weather"
           className="size-40 animate-pulse"
         />
