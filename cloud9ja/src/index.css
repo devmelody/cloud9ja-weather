@@ -20,5 +20,5 @@ body {
 }
 
 .nav-buttons {
-  @apply flex flex-col items-center hover:rounded-xl w-16 shadow-md p-2 hover:shadow-xl transition-shadow duration-200;
+  @apply flex flex-col items-center hover:rounded-xl md:w-16 md:shadow-md md:p-2 hover:shadow-xl transition-shadow duration-200;
 }
