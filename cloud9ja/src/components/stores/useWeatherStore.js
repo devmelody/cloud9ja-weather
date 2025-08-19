@@ -33,7 +33,7 @@ const useWeatherStore = create((set) => ({
       const lat = coordinates.data.coord.lat;
 
       const hourlyResponse = await axios.get(
-        `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=temperature_2m`
+        `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=temperature_2m,weather_code`
       );
 
       //daily weather data request
@@ -68,7 +68,7 @@ const useWeatherStore = create((set) => ({
 
       //hourly weather from open-meteo
       const hourlyResponse = await axios.get(
-        `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=temperature_2m`
+        `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=temperature_2m,weather_code`
       );
 
       //daily weather from weatherbit

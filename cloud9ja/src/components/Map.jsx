@@ -3,23 +3,28 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import {Icon} from 'leaflet'
 import Header from './Header'
+import { useEffect, useState } from "react";
+
 
 function Map() {
+    const [userLocation, setUserLocation] = useState(null)
 
-    const markers = [
-        {
-            geocode: [48.86, 2.3522],
-            popUp: "Hello, I am pop up 1"
-        },
-        {
-            geocode: [48.85, 2.3522],
-            popUp: "Hello, I am pop up 2"
-        },
-        {
-            geocode: [48.855, 2.34],
-            popUp: "Hello, I am pop up 3"
+
+    useEffect(() => {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition((position) => {
+                setUserLocation([position.coords.latitude, position.coords.longitude])
+            }), (error) => {
+                alert(error)
+                setUserLocation([9.05785, 7.49508])
+            }
+        } else {
+            alert("Geolocation not supported by browser")
+            setUserLocation([9.05785, 7.49508])
         }
-    ]
+    }, [])
+
+
 
     const customIcon = new Icon( {
         iconUrl: "https://cdn-icons-png.flaticon.com/128/12461/12461186.png",
@@ -32,21 +37,23 @@ function Map() {
 
         <Header />
         </div>
-    <MapContainer className="h-lvh md:rounded-r-lg md:rounded-l-none" center={[48.8566, 2.3522]} zoom={13}>
+        {userLocation ? (
+    <MapContainer className="h-lvh md:rounded-r-lg md:rounded-l-none" center={userLocation} zoom={13}>
       <TileLayer
         attribution='&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
-{markers.map((marker) => (
-    <Marker position={marker.geocode} icon={customIcon} >
+    <Marker position={userLocation} icon={customIcon} >
 <Popup>
-    Weather location
+    <p className="font-bold">You are here</p>
 </Popup>
     </Marker>
-))}
-
     </MapContainer>
+): (
+    <p className="text-white">Loading map...</p>
+    )
+}
 </div>
   );
 }

@@ -26,10 +26,10 @@ const {weatherData} = useWeatherStore();
           <div className="flex">
             <img
               src={getWeatherIcon(day.weather.code)}
-              alt={getWeatherIcon(day.weather.code)}
+              alt={getWeatherIcon(day.weather.description)}
               className="w-8 h-7 block border-white-600"
             />
-            <p>Sunny</p>
+            
           </div>
           <p>{Math.round(day.max_temp)}&deg;/{Math.round(day.min_temp)}&deg;</p>
         </div>

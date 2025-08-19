@@ -11,6 +11,8 @@ function HourlyForecast() {
   
   const hoursToDisplay = weatherData.hourlyData.time.slice(0, 6);
   const tempsToDisplay =weatherData.hourlyData.temperature_2m.slice(0, 6);
+  const codesToDisplay = weatherData.hourlyData.weather_code.slice(0, 6);
+  
 
 
   return (
@@ -26,8 +28,8 @@ function HourlyForecast() {
     hour12: true
   })}</p>
             <img
-              src={getWeatherIcon2(hour.weather.code)}
-              alt={getWeatherIcon2(hour.weather.code)}
+              src={getWeatherIcon2(codesToDisplay[index])}
+              alt='weather-icon'
               className="w-10 h-10 block border-white-600 "
             />
             <p className="text-xs font-bold text-white">{tempsToDisplay[index].toFixed()}&deg;c</p>
