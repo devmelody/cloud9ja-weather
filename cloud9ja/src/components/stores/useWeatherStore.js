@@ -7,10 +7,35 @@ const OPENWEATHER_KEY = import.meta.env.VITE_OPENWEATHER_KEY;
 const useWeatherStore = create((set) => ({
   searchCity: "",
   setSearchCity: (city) => set({ searchCity: city }),
-  toggle: "light",
-  setToggle: (state) => set({toggle: state.toggle === "light" ? "dark" : "light"}),
+  toggle: "dark",
+  setToggle: () =>
+    set((state) => ({ toggle: state.toggle === "dark" ? "light" : "dark" })),
   weatherData: null,
   error: null,
+  //add city function
+  savedCities: JSON.parse(localStorage.getItem("savedCities")) || [],
+  addCity: () =>
+    set((state) => {
+      const updatedCities =
+        state.weatherData?.cityName &&
+        !state.savedCities.includes(state.weatherData?.cityName)
+          ? [...state.savedCities, state.weatherData?.cityName]
+          : state.savedCities;
+      localStorage.setItem("savedCities", JSON.stringify(updatedCities));
+      return { savedCities: updatedCities };
+    }),
+
+  removeCity: (city) =>
+    set((state) => {
+      const updatedCities = state.savedCities.filter((c) => c !== city);
+      localStorage.setItem("savedCities", JSON.stringify(updatedCities));
+      return { savedCities: updatedCities };
+    }),
+
+  clearCity: () => {
+    localStorage.removeItem("savedCities");
+    return set({ savedCities: [] });
+  },
 
   fetchWeatherData: async (city) => {
     try {

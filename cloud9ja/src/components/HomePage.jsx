@@ -16,7 +16,7 @@ function HomePage() {
       <Header />
       </aside>
 
-      <section className='flex flex-col gap-4'>
+      <section className='flex flex-col gap-2'>
       <Search />
       <CurrentWeather />
       <HourlyForecast />

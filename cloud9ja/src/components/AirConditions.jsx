@@ -15,10 +15,10 @@ function AirConditions() {
   }
 
   return (
-    <section className="forecast-card">
-      <h3 className="forecast-card-title">AIR CONDITIONS</h3>
+    <section className="forecast-card h-full">
+      <h3 className="forecast-card-title md:mt-2">AIR CONDITIONS</h3>
 
-      <div className="air-conditions-flexed gap-y-12">
+      <div className="air-conditions-flexed gap-y-12 md:mt-2">
         <div className="flex flex-col">
           <div className="flex text-left">
             <Thermometer size={28} className="text-slate-400 p-1" />

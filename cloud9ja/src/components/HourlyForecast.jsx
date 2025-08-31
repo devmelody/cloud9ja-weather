@@ -16,15 +16,15 @@ function HourlyForecast() {
 
 
   return (
-    <section className="forecast-card">
-      <h3 className="forecast-card-title">TODAY'S FORECAST</h3>
+    <section className="forecast-card h-full">
+      <h3 className="forecast-card-title md:mt-2">TODAY'S FORECAST </h3>
 
-      <div className="flex mt-2 gap-2 justify-between overflow-x-auto snap-x snap-mandatory">
+      <div className="flex gap-3 justify-between mt-1 overflow-x-auto snap-x snap-mandatory">
         {hoursToDisplay.map((hour, index) => (
-          <div key={index} className="flex flex-col items-center gap-0">
-            <p className="text-xs font-semibold">{new Date(hour).toLocaleTimeString([], {
+          <div key={index} className="flex flex-col items-center gap-0 md:mt-4">
+            <p className="text-xs font-semibold ">{new Date(hour).toLocaleTimeString([], {
     hour: "numeric",
-    minute: "2-digit",
+    minute: "numeric",
     hour12: true
   })}</p>
             <img
@@ -32,7 +32,7 @@ function HourlyForecast() {
               alt='weather-icon'
               className="w-10 h-10 block border-white-600 "
             />
-            <p className="text-xs font-bold text-white">{tempsToDisplay[index].toFixed()}&deg;c</p>
+            <p className="text-xs font-bold dark:text-white">{tempsToDisplay[index].toFixed()}&deg;c</p>
           </div>
         ))}
       </div>

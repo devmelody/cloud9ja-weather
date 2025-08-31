@@ -9,8 +9,11 @@ const handleSubmit = async (e) => {
   if (searchCity.trim() !== "") {
     fetchWeatherData(searchCity)
   }
+  //debugging
   console.log('Hello');
 }
+
+
 
   return (
     <form onSubmit={handleSubmit}>
@@ -19,7 +22,7 @@ const handleSubmit = async (e) => {
         placeholder="Search for cities..."
         value={searchCity}
         onChange={(e) => setSearchCity(e.target.value)}
-        className="p-1.5 mt-3 md:mt-0 container rounded-lg text-white bg-slate-800 font-medium text-xs md:font-bold md:py-3"
+        className="p-1.5 mt-3 md:mt-0 container rounded-lg border-slate-800 text-slate-600 dark:text-white dark:bg-slate-800 bg-slate-200 font-medium text-base md:font-bold md:py-3"
       />
     </form>
   );
