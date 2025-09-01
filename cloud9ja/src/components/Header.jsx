@@ -24,9 +24,9 @@ function Header() {
   console.log('Saved cities:',savedCities)
   }
   return (
-    <header className="h-full">
+    <header>
       <nav
-        className="flex bg-gray-200 md:flex-col md:justify-start md:pb-40 items-center justify-between top-0 rounded-2xl z-50 dark:bg-slate-700
+        className="flex h-full bg-gray-200 md:flex-col md:justify-start md:pb-40 items-center justify-between top-0 rounded-2xl z-50 dark:bg-slate-700
        p-2"
       >
         <NavLink to="/" className="nav-buttons hover:animate-spin md:mt-3">
