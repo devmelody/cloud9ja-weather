@@ -10,7 +10,7 @@ function App() {
 const toggle = useWeatherStore((state) => state.toggle)
 useEffect(() => {
     if (toggle === "dark") {
-      document.documentElement.classList.add("dark"); // applies to <html>
+      document.documentElement.classList.add("dark");
     } else {
       document.documentElement.classList.remove("dark");
     }

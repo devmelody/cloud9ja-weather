@@ -81,7 +81,7 @@ function Header() {
           >
             <LightbulbIcon size={32} className="text-slate-400 p-1" />
             <p className="hidden md:block text-xs mb-0 text-slate-400">
-              {toggle === "dark" ? "Light mode" : "Dark mode"}
+              {toggle === "dark" ? "Light Mode" : "Dark Mode"}
             </p>
           </button>
         </div>
